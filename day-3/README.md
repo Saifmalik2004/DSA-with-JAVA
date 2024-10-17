@@ -1,6 +1,3 @@
-Here’s a detailed **Day 3** `README.md` file that covers operators in Java, type conversion, type casting, type promotion, and how Java code works, including a diagram for the code execution flow.
-
----
 
 # Day 3: Operators, Type Conversion, and Code Execution Flow
 
@@ -79,6 +76,22 @@ Bitwise operators operate on bits and perform bit-level operations.
 | `>>>`    | Unsigned right shift                 | `x >>> 2`    |
 
 Bitwise operators perform operations on the individual bits of integer types. We will cover bitwise operators in detail in a later chapter.
+
+
+# Operator Precedence
+
+Operator precedence determines the order in which the operators in an expression are evaluated. 
+
+For example:
+```java
+int x = 3 * 4 - 1;
+```
+
+In the above example, the value of `x` will be `11`, not `9`. This happens because the precedence of the `*` operator is higher than that of the `-` operator. That is why the expression is evaluated as `(3 * 4) - 1` and not `3 * (4 - 1)`.
+
+
+
+
 
 ## Type Conversion and Type Casting
 
