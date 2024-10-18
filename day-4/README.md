@@ -1,5 +1,4 @@
 
-
 # Day 4: Conditional Statements in Java
 
 ## 1. `if-else` Statement
@@ -26,7 +25,7 @@ if (pizzaSlices > 0) {
 }
 ```
 
-Here, if `pizzaSlices` is more than 0, it prints "Yay! Let's have some pizza." Otherwise, it prints "Oops! No pizza left." 🍕
+Here, if `pizzaSlices` is more than 0, it prints "Yay! Let's have some pizza." Otherwise, it prints "Oops! No pizza left." 🍕 
 
 ---
 
@@ -109,29 +108,14 @@ switch (expression) {
 int day = 5;
 
 switch (day) {
-    case 1:
-        System.out.println("Monday - Time to hustle!");
-        break;
-    case 2:
-        System.out.println("Tuesday - Keep going!");
-        break;
-    case 3:
-        System.out.println("Wednesday - Halfway there!");
-        break;
-    case 4:
-        System.out.println("Thursday - Almost Friday!");
-        break;
-    case 5:
-        System.out.println("Friday - The weekend is near!");
-        break;
-    case 6:
-        System.out.println("Saturday - Time to relax!");
-        break;
-    case 7:
-        System.out.println("Sunday - Get ready for the new week.");
-        break;
-    default:
-        System.out.println("Invalid day.");
+    case 1 -> System.out.println("Monday - Time to hustle!");
+    case 2 -> System.out.println("Tuesday - Keep going!");
+    case 3 -> System.out.println("Wednesday - Halfway there!");
+    case 4 -> System.out.println("Thursday - Almost Friday!");
+    case 5 -> System.out.println("Friday - The weekend is near!");
+    case 6 -> System.out.println("Saturday - Time to relax!");
+    case 7 -> System.out.println("Sunday - Get ready for the new week.");
+    default -> System.out.println("Invalid day.");
 }
 ```
 
@@ -147,4 +131,6 @@ In this example, depending on the value of `day`, it prints a message. If the `d
 - **Use `switch`** when you have multiple possible outcomes based on a single value.
 
 These conditional statements are the decision-makers in your code, helping it adapt and react based on input or conditions. Happy coding!
+```
 
+This version includes the enhanced (rule) switch syntax, which makes the code more concise and readable! Let me know if you need any further adjustments!
