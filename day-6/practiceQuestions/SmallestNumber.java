@@ -4,8 +4,17 @@ public class SmallestNumber {
 
     // Function to find the smallest of three numbers
     public static int findSmallest(int num1, int num2, int num3) {
-        // Using Math.min to find the smallest number
-        return Math.min(num1, Math.min(num2, num3));
+        int smallest = num1; // Assume num1 is the smallest
+    
+        if (num2 < smallest) {
+            smallest = num2; // Update if num2 is smaller
+        }
+        
+        if (num3 < smallest) {
+            smallest = num3; // Update if num3 is smaller
+        }
+        
+        return smallest; // Return the smallest number
     }
 
     public static void main(String[] args) {
