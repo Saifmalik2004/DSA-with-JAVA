@@ -3,6 +3,7 @@ import java.util.Scanner; // Import the Scanner class for user input
 // Explanation: A string is a sequence of characters. 
 // Reversing a string means writing it backward. 
 // For example, the reverse of "Hello" is "olleH".
+
 public class ReverseString {
     // Executor to test the function
     public static void main(String[] args) {

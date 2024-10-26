@@ -1,19 +1,17 @@
 import java.util.Scanner;
 
 public class Factorial {
-    public static void factorial(int num) {
-        int fact = 1;
-        for (int i = 1; i <= num; i++) {
-            fact *= i;
-        }
-        System.out.println("The factorial of " + num + " is: " + fact);
-    }
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter a number to find its factorial:");
-        int num = sc.nextInt();
-        factorial(num);
-        sc.close();
+        // Scanner will automatically close after try block
+        try (Scanner sc = new Scanner(System.in)) {
+            System.out.print("Enter a number to find its factorial:");
+            int num = sc.nextInt(); // Read the input number
+
+            int fact = 1; // Initialize factorial variable
+            for (int i = 1; i <= num; i++) {
+                fact *= i; // Multiply fact by i
+            }
+            System.out.println("The factorial of " + num + " is: " + fact); // Output result
+        }
     }
 }
