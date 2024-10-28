@@ -35,7 +35,7 @@ For every subarray, the program will:
 
 ## ⚙️ Example Run
 
-Let's say we use the array:
+Let’s use an example array:
 
 ```java
 int num[] = {1, 2, 3};
@@ -63,13 +63,11 @@ Maximum sum of subarrays: 6
 - The subarray `[1, 2, 3]` has a sum of `6`.
 - The smallest sum is `1`, and the largest sum is `6`.
 
-Pretty cool, right? 😎
-
 ---
 
 ## 🧐 Dry Run of the Code with an Array of 4 Elements
 
-Let's go deeper and break down how the program works with a **4-element array**:
+Let’s break down the program with an example array of **4 elements**:
 
 ```java
 int num[] = {2, 4, 6, 8};
@@ -100,60 +98,128 @@ int num[] = {2, 4, 6, 8};
 - **Minimum sum**: 2
 - **Maximum sum**: 20
 
-So, the smallest subarray sum is `2`, and the largest subarray sum is `20`. This means the program efficiently explores every possible subarray, calculates the sum, and finds the minimum and maximum values!
+---
+
+## 🛠 Different Approaches to Find Maximum Subarray Sum
+
+### 1. Brute Force Approach 🐢
+
+In the brute force approach, we generate all possible subarrays, calculate the sum of each one, and keep track of the maximum sum.
+
+```java
+public class MaxInSubArrayBruteForce {
+    public static void maxSubArrayBruteForce(int[] arr) {
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int currSum = 0;
+                for (int k = i; k <= j; k++) {
+                    currSum += arr[k];
+                }
+                maxSum = Math.max(maxSum, currSum);
+            }
+        }
+        System.out.println("Maximum sum of subarrays (Brute Force): " + maxSum);
+    }
+}
+```
+
+#### Complexity:
+- **Time Complexity**: O(n^3) — due to three nested loops.
+- **Space Complexity**: O(1) — only uses a few variables.
+
+### 2. Prefix Sum Approach 📏
+
+The prefix sum approach optimizes by precomputing sums. We calculate the prefix sum for each element and use it to find the subarray sums more efficiently.
+
+```java
+public class MaxInSubArrayPrefixSum {
+    public static void maxSubArrayPrefixSum(int[] arr) {
+        int maxSum = Integer.MIN_VALUE;
+        int[] prefix = new int[arr.length];
+        prefix[0] = arr[0];
+        for (int i = 1; i < arr.length; i++) {
+            prefix[i] = prefix[i - 1] + arr[i];
+        }
+
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = i; j < arr.length; j++) {
+                int currSum = i == 0 ? prefix[j] : prefix[j] - prefix[i - 1];
+                maxSum = Math.max(maxSum, currSum);
+            }
+        }
+        System.out.println("Maximum sum of subarrays (Prefix Sum): " + maxSum);
+    }
+}
+```
+
+#### Complexity:
+- **Time Complexity**: O(n^2) — two nested loops.
+- **Space Complexity**: O(n) — additional space for the prefix array.
+
+### 3. Kadane’s Algorithm 🏆
+
+Kadane’s Algorithm is the most efficient solution. It iterates once through the array, tracking the maximum sum as it goes.
+
+```java
+public class MaxInSubArrayKadaneAlgo {
+    public static void maxSubArrayKadane(int[] arr) {
+        int currSum = 0;
+        int maxSum = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            currSum += arr[i];
+            maxSum = Math.max(maxSum, currSum);
+            if (currSum < 0) {
+                currSum = 0;
+            }
+        }
+        System.out.println("Maximum sum of subarrays (Kadane's Algorithm): " + maxSum);
+    }
+}
+```
+
+#### Complexity:
+- **Time Complexity**: O(n) — single loop through the array.
+- **Space Complexity**: O(1) — only uses a few variables.
 
 ---
 
 ## 📜 Code Walkthrough
 
-```java
-public class printSubArray {
+Here’s a sample implementation that explores all subarrays and finds the maximum and minimum sums:
 
-    public static void printSubArray(int num[]) {
+```java
+public class SubArrayExplorer {
+
+    public static void exploreSubArrays(int num[]) {
         int total = 0; // Counter for total subarrays
         int minSum = Integer.MAX_VALUE; // Initially set to a very high value
         int maxSum = Integer.MIN_VALUE; // Initially set to a very low value
 
-        // Outer loop to define the starting point of each subarray
         for (int i = 0; i < num.length; i++) {
-
-            // Inner loop to define the end of each subarray
             for (int j = i; j < num.length; j++) {
                 int sum = 0; // Sum of the current subarray
-
-                // Loop to calculate the sum of the subarray
                 for (int k = i; k <= j; k++) {
                     System.out.print(num[k] + " ");
-                    sum += num[k]; // Adding the element to sum
+                    sum += num[k];
                 }
 
-                // Check if the current sum is smaller than minSum
-                if (sum < minSum) {
-                    minSum = sum; // Update minSum
-                }
-
-                // Check if the current sum is larger than maxSum
-                if (sum > maxSum) {
-                    maxSum = sum; // Update maxSum
-                }
-
-                total++; // Increment the total subarray counter
-                System.out.print(" Sum: " + sum); // Print the sum of the current subarray
-                System.out.println(); // Move to the next line
+                minSum = Math.min(minSum, sum); // Update minSum if current sum is smaller
+                maxSum = Math.max(maxSum, sum); // Update maxSum if current sum is larger
+                total++;
+                System.out.print(" Sum: " + sum);
+                System.out.println();
             }
-
-            System.out.println(); // Blank line to separate subarrays
+            System.out.println();
         }
-
-        // After all subarrays are processed, print the total count and min/max sums
         System.out.println("Total number of subarrays: " + total);
         System.out.println("Minimum sum of subarrays: " + minSum);
         System.out.println("Maximum sum of subarrays: " + maxSum);
     }
 
     public static void main(String[] args) {
-        int num[] = {2, 4, 6, 8}; // Example array for dry run
-        printSubArray(num); // Calling the method
+        int num[] = {2, 4, 6, 8};
+        exploreSubArrays(num);
     }
 }
 ```
@@ -163,9 +229,9 @@ public class printSubArray {
 ## 💡 Key Points:
 - **Subarrays** are continuous segments of the array.
 - We **print** and **sum** each subarray, tracking the smallest and largest sums.
-- At the end, we display the **total number of subarrays**, along with the **minimum** and **maximum** sums.
+- The program demonstrates multiple approaches: **Brute Force**, **Prefix Sum**, and **Kadane’s Algorithm** for maximum subarray sum.
+- **Kadane's Algorithm** is the most efficient approach for finding the maximum sum of subarrays.
 
 Feel free to experiment with different arrays and see how the subarrays and sums change!
 
 Happy Coding! 😊
-
