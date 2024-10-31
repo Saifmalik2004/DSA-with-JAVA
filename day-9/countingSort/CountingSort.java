@@ -31,7 +31,7 @@ public class CountingSort {
 
     // Main method to test the countingSort function
     public static void main(String[] args) {
-        int[] arr = {5, 4, 1, 3, 2};  // Define an unsorted array of integers
+        int[] arr = {9,0,8,1,2,0,2,5,6,9,0};  // Define an unsorted array of integers
 
         countingSort(arr);  // Call the counting sort function on 'arr'
      
