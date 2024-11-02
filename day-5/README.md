@@ -150,6 +150,54 @@ do {
 
 ---
 
+### 4. Enhanced `for-each` Loop
+
+The enhanced `for-each` loop provides a simplified way to iterate over arrays or collections in Java. This loop is ideal when you need to access each element in an array or collection without modifying it.
+
+#### Structure:
+```java
+for (type element : arrayOrCollection) {
+    // code to execute
+}
+```
+
+- **Type**: The data type of each element in the array or collection.
+- **Element**: The loop variable that represents each item in the array or collection.
+- **Array or Collection**: The collection or array you want to loop through.
+
+### Example Use Cases:
+- Accessing each element in an array or list.
+- Iterating through elements in a collection like an `ArrayList`.
+
+### Example: Printing Elements in an Array
+
+Here's an example using an enhanced `for-each` loop to print elements in an array:
+
+```java
+int[] numbers = {10, 20, 30, 40, 50};
+
+for (int number : numbers) {
+    System.out.print(number + " ");
+}
+```
+
+#### Dry Run:
+
+Given the array `numbers = {10, 20, 30, 40, 50}`, the loop executes as follows:
+
+1. **Iteration 1**: `number` is `10`, which is printed.
+2. **Iteration 2**: `number` is `20`, which is printed.
+3. **Iteration 3**: `number` is `30`, which is printed.
+4. **Iteration 4**: `number` is `40`, which is printed.
+5. **Iteration 5**: `number` is `50`, which is printed.
+
+The output will be:
+```
+10 20 30 40 50 
+```
+
+---
+
 ### Advice for Users:
 
 - **Start Small**: Begin with simple loops to understand the basics before diving into more complex scenarios.
@@ -162,5 +210,6 @@ do {
 - **Use `for` loops** for fixed iterations where the count is known.
 - **Use `while` loops** when the number of iterations is uncertain and depends on a condition.
 - **Use `do-while` loops** when you need to ensure the loop runs at least once.
+- **Use enhanced `for-each` loops** for readability and when you don’t need to modify the elements.
 
 Loops are the backbone of efficient programming! They help automate repetitive tasks, making your code dynamic and powerful. Happy coding! 🎉
