@@ -2,10 +2,10 @@
 
 public class BinarySearchIterative {
 
-    // Method for performing binary search iteratively
+   
     public static int binarySearch(int number[], int key) {
-        int start = 0; // Initialize start index
-        int end = number.length - 1; // Initialize end index
+        int start = 0; 
+        int end = number.length - 1; 
 
         // Loop until the start index is less than or equal to the end index
         while (start <= end) {
@@ -28,20 +28,20 @@ public class BinarySearchIterative {
         return -1; // Key not found, return -1
     }
 
-    // Main method to test the iterative binary search
+  
     public static void main(String[] args) {
-        // Sample sorted array
+        
         int number[] = {1, 2, 3, 4, 5, 6, 7, 8}; 
-        int key = 5; // Key to be searched
+        int key = 5; 
 
-        // Call the binary search method and store the result
+        
         int result = binarySearch(number, key);
         
         // Check if the result is negative, meaning the key was not found
         if (result < 0) {
-            System.out.println("Not found"); // Print not found message
+            System.out.println("Not found");
         } else {
-            // Print the index where the key was found (1-based)
+           
             System.out.println("Key found at index: " + result);
         }
     }

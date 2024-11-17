@@ -2,7 +2,7 @@
 
 public class BinarySearchRecursive {
 
-    // Method for performing binary search recursively
+    
     public static int binarySearchRecur(int number[], int key, int start, int end) {
         // Base case: if start index exceeds end index, the key is not found
         if (start <= end) {
@@ -25,20 +25,20 @@ public class BinarySearchRecursive {
         return -1; // Key not found, return -1
     }
 
-    // Main method to test the recursive binary search
+    
     public static void main(String[] args) {
-        // Sample sorted array
+        
         int number[] = {1, 2, 3, 4, 5, 6, 7, 8}; 
-        int key = 5; // Key to be searched
+        int key = 5; 
 
-        // Call the recursive binary search method and store the result
+        
         int result = binarySearchRecur(number, key, 0, number.length - 1);
         
         // Check if the result is negative, meaning the key was not found
         if (result < 0) {
-            System.out.println("Not found"); // Print not found message
+            System.out.println("Not found"); 
         } else {
-            // Print the index where the key was found (1-based)
+            
             System.out.println("Key found at index: " + result);
         }
     }
