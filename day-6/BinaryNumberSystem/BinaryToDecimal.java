@@ -11,7 +11,7 @@ public class BinaryToDecimal {
         // Loop through each digit of the binary number
         while (binNum > 0) {
             int lastdigit = binNum % 10;  // Extract the last digit (0 or 1)
-            decimal = decimal + (lastdigit * (int) Math.pow(2, pow));  // Calculate the decimal value for this digit
+            decimal += (lastdigit * (int) Math.pow(2, pow));  // Calculate the decimal value for this digit
 
             pow++;  // Increment power for the next position
             binNum = binNum / 10;  // Remove the last digit by dividing the binary number by 10
