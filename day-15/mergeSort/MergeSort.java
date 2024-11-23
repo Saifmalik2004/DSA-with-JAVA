@@ -1,13 +1,13 @@
 public class MergeSort {
 
-    // Main method to test the merge sort implementation
+   
     public static void main(String[] args) {
-        int[] arr = {1, 3, 5}; // Input array to be sorted
-        mergeSort(arr, 0, arr.length - 1); // Calling mergeSort on the entire array
-        print(arr); // Printing the sorted array
+        int[] arr = {1, 3, 5};
+        mergeSort(arr, 0, arr.length - 1); 
+        print(arr); 
     }
 
-    // Merge Sort function to divide the array and merge sorted parts
+   
     public static void mergeSort(int arr[], int start, int end) {
         // Base case: if the segment has one or zero elements, it's already sorted
         if (start >= end) {
