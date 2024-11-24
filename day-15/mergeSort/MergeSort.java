@@ -1,13 +1,6 @@
 public class MergeSort {
 
    
-    public static void main(String[] args) {
-        int[] arr = {1, 3, 5};
-        mergeSort(arr, 0, arr.length - 1); 
-        print(arr); 
-    }
-
-   
     public static void mergeSort(int arr[], int start, int end) {
         // Base case: if the segment has one or zero elements, it's already sorted
         if (start >= end) {
@@ -61,11 +54,19 @@ public class MergeSort {
         }
     }
 
-    // Utility function to print the array
+    
     public static void print(int[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.err.println();
     }
+    
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 5};
+        mergeSort(arr, 0, arr.length - 1); 
+        print(arr); 
+    }
+
+   
 }
