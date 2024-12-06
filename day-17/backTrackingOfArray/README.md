@@ -1,5 +1,3 @@
-
-
 ### **Backtracking with Arrays in Java**
 
 Welcome to **Backtracking with Arrays**! This program demonstrates the use of recursion and backtracking to fill and modify an array dynamically.
@@ -98,6 +96,34 @@ Here’s the output for an array of size 5:
 
 ---
 
+### **Time Complexity Analysis**
+
+#### **1. Recursive Calls**
+- The recursion proceeds in a depth-first manner:
+  - Each element of the array is visited once during the recursive filling phase.
+  - Backtracking occurs for each element on the return journey.
+
+#### **2. Printing the Array**
+- The array is printed twice: 
+  - Once after being fully filled.
+  - Once after the backtracking is complete.
+
+#### **Overall Complexity**
+1. **Time Complexity**:
+   - Let `n` be the size of the array.
+   - Filling the array and backtracking both involve visiting all elements → `O(n)`.
+   - Printing the array takes `O(n)` for each print.
+   - Total time complexity: **O(n)** + **O(n)** = **O(n)**.
+
+2. **Space Complexity**:
+   - The space used for recursion depends on the depth of the recursion tree.
+   - Maximum recursion depth = size of the array (`n`).
+   - Space for the recursion stack: **O(n)**.
+   - Space for the array: **O(n)**.
+   - Total space complexity: **O(n)**.
+
+---
+
 ### **Key Concepts Demonstrated**
 
 1. **Recursion**:
@@ -106,6 +132,8 @@ Here’s the output for an array of size 5:
    - Stops recursion when the array is fully filled.
 3. **Backtracking**:
    - Modifies the array on the return journey of recursion.
+4. **Complexity Analysis**:
+   - Demonstrates how recursion impacts time and space complexity.
 
 ---
 
