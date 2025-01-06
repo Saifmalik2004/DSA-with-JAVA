@@ -1,6 +1,4 @@
-Here’s a detailed breakdown of the `Fibonacci` program, covering the logic, recursive flow, dry run, call stack visualization, complexity analysis, and key points.
 
----
 
 # 📘 `Fibonacci` - Calculating Fibonacci Numbers with Recursion
 
