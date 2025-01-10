@@ -5,6 +5,7 @@ Welcome to **Lecture 16**, where we’ll dive deep into **time and space complex
 By the end of this Lecture, you’ll have a clear understanding of **time complexity**, **space complexity**, and how to compute them using **Big O**, **Big Omega**, and **Big Theta** notations.
 
 ---
+<img src="https://media.licdn.com/dms/image/C5612AQHWX05Io07U6Q/article-cover_image-shrink_720_1280/0/1649267414579?e=2147483647&v=beta&t=raUKbDzqySqsuv4Q2XvWIz9bxVxPDKfDQ7eTprNxZVM" alt="chart"  >
 
 ### **Introduction to Time Complexity**
 
