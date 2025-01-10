@@ -11,15 +11,13 @@ public class SolidRhombus {
         for (int i = 1; i <= rows; i++) {
             // Inner loop for spaces
             for (int j = 1; j <= rows - i; j++) {
-                System.out.print("  "); // two spaces for alignment
+                System.out.print("   "); //  spaces for alignment
             }
             // Inner loop for stars
             for (int j = 0; j <rows; j++) {
-                System.out.print("* ");
+                System.out.print(" * ");
             }
-            for (int j = 1; j <= i - 1; j++) {
-                System.out.print("  "); // two spaces for alignment
-            }
+           
             System.out.println();
         }
     }
