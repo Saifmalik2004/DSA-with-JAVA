@@ -1,10 +1,10 @@
 //output of this pattern is:
-// * 
-// * *
-// * * *
-// * * * *
-// * * * * *
-// * * * * * *
+//           * 
+//         * * 
+//       * * * 
+//     * * * * 
+//   * * * * * 
+// * * * * * * 
 public class RightAlignedHalfPyramid {
     
     // Method to print a right-aligned half pyramid

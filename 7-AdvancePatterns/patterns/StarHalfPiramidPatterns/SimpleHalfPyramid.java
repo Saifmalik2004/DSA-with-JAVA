@@ -1,3 +1,4 @@
+
 //output this pattern is:
 // * 
 // * *
