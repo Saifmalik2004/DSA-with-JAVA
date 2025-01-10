@@ -17,11 +17,11 @@ public class DiamondPattern {
         for (int i = 1; i <= n; i++) {
             // Print leading spaces for alignment
             for (int j = 1; j <= n - i; j++) {
-                System.out.print(" "); // Print spaces for alignment
+                System.out.print("   "); // Print spaces for alignment
             }
             // Print stars for the diamond
             for (int j = 1; j <= 2 * i - 1; j++) {
-                System.out.print("*"); // Print '*' for the diamond shape
+                System.out.print(" * "); // Print '*' for the diamond shape
             }
             System.out.println(); // Move to the next line after finishing a row
         }
@@ -30,11 +30,11 @@ public class DiamondPattern {
         for (int i = n - 1; i >= 1; i--) {
             // Print leading spaces for alignment
             for (int j = 1; j <= n - i; j++) {
-                System.out.print(" "); // Print spaces for alignment
+                System.out.print("   "); // Print spaces for alignment
             }
             // Print stars for the diamond
             for (int j = 1; j <= 2 * i - 1; j++) {
-                System.out.print("*"); // Print '*' for the diamond shape
+                System.out.print(" * "); // Print '*' for the diamond shape
             }
             System.out.println(); // Move to the next line after finishing a row
         }
