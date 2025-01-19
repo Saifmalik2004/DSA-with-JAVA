@@ -38,12 +38,14 @@ public class QuickSort {
         
         // Place the pivot in its correct position
         i++;
-        int temp = pivot; 
-        arr[ei] = arr[i]; 
-        arr[i] = temp;    
-        
        
-        return i;
+            int temp = pivot; 
+            arr[ei] = arr[i]; 
+            arr[i] = temp; 
+
+
+            return i;
+
     }
 
     // Utility function to print the array
