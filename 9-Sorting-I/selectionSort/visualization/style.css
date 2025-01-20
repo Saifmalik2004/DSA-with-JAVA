@@ -1,0 +1,149 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 1200px;
+  }
+
+  h1, h2 {
+    text-align: center;
+    font-weight: bolder;
+  }
+
+  h1 {
+    font-size: 55px;
+    color: #582c0c;
+    background: linear-gradient(to right, #582c0c, #d88a35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  h2 {
+    font-size: 30px;
+    color: rgb(77, 36, 7);
+    margin-top: 50px;
+  }
+
+  p {
+    font-size: 1.5em;
+    line-height: 1.6;
+    text-align: justify;
+    font-weight: 400;
+    color: rgb(32, 46, 75);
+  }
+
+  .steps-container {
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  .step-heading {
+    font-size: 1.2em;
+    line-height: 1.6;
+    font-weight: 600;
+    color: rgb(77, 36, 7);
+    margin-bottom: 10px;
+    max-width: 800px; /* Set the same max width as .code-section */
+    width: 100%; /* Ensure responsiveness */
+    text-align: center; /* Center the text */
+    margin: 20px auto; /* Center the heading horizontally */
+}
+
+
+  .highlight {
+    display: inline-block;
+    background-color: #f1f0eb;
+    padding: 1px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .image-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+
+  .code-section {
+    background-color: #1e1e1e;
+    color: #dcdcdc;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
+    margin: 20px auto; /* Center the section horizontally and add vertical spacing */
+    max-width: 700px; /* Set the maximum width */
+    width: calc(100% - 40px); /* Ensure responsiveness with some padding */
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-x: auto; /* Add horizontal scrolling if content exceeds width */
+    position: relative;
+  }
+.code-section pre {
+    margin: 0;
+    overflow-x: auto;
+}
+
+  .copy-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+
+  .copy-button:hover {
+    background-color: #45a049;
+  }
+  footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #f8f9fa;
+  }
+  
+  footer div {
+    margin-top: 10px;
+  }
+  footer p {
+   
+    text-align: center;
+  }
+  
+  footer a img {
+    transition: transform 0.2s ease;
+  }
+  
+  footer a img:hover {
+    transform: scale(1.2);
+  }
+  
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 40px;
+    }
+
+    h2 {
+      font-size: 24px;
+    }
+
+    p {
+      font-size: 1.2em;
+    }
+
+    .step-heading {
+      font-size: 1em;
+    }
+  }

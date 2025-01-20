@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selection Sort Algorithm</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+  <header class="cover-section">
+    <h1>Selection Sort Algorithm</h1>
+    <p>
+      Selection sort is a sorting algorithm that selects the smallest element from an unsorted list 
+      in each iteration and places that element at the beginning of the unsorted list. It is an 
+      in-place comparison-based algorithm.
+    </p>
+  </header>
+  <hr/>
+  <div class="steps-container">
+    <p class="step-heading">
+      1. Set the first element as <span class="highlight">minimum</span>
+    </p>
+    <div class="image-container">
+      <img src="public/one.png" alt="Selection Sort Visualization">
+    </div>
+  </div>
+  <div class="steps-container">
+    <p class="step-heading">
+      2. Compare <span class="highlight">minimum</span> with the second element. If the second element is smaller than <span class="highlight">minimum</span>, assign the second element as minimum.
+    </p>
+    <p class="step-heading">
+      Compare <span class="highlight">minimum</span> with the third element. Again, if the third element is smaller, then assign <span class="highlight">minimum</span>.
+    </p>
+    <div class="image-container">
+      <img src="public/two.png" alt="Selection Sort Visualization">
+    </div>
+  </div>
+  <div class="steps-container">
+    <p class="step-heading">
+      3. After each iteration, <span class="highlight">minimum</span> is placed in the front of the unsorted list.
+    </p>
+    <div class="image-container">
+      <img src="public/three.png" alt="Selection Sort Visualization">
+    </div>
+  </div>
+  <div class="steps-container">
+    <p class="step-heading">
+      4. For each iteration, indexing starts from the first unsorted element. Step 1 to 3 are repeated until all the elements are placed at their correct positions.
+    </p>
+    <div class="image-container">
+      <img src="public/four.png" alt="Selection Sort Visualization">
+    </div>
+  </div>
+  <div class="image-container">
+    <img src="public/five.png" alt="Selection Sort Visualization">
+  </div>
+  <div class="image-container">
+    <img src="public/six.png" alt="Selection Sort Visualization">
+  </div>
+  <div class="image-container">
+    <img src="public/seven.png" alt="Selection Sort Visualization">
+  </div>
+  <h2>Selection Sort Algorithm Code</h2>
+  <div class="code-section">
+    <button class="copy-button" onclick="copyCode()">Copy</button>
+    <pre>
+public class SelectionSort {
+    public static void selectionSort(int[] arr) {
+        for (int step = 0; step < arr.length - 1; step++) {
+            int minIndex = step;
+            for (int j = step + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) {
+                    minIndex = j;
+                }
+            }
+            // Swap the found minimum element with the current element
+            int temp = arr[minIndex];
+            arr[minIndex] = arr[step];
+            arr[step] = temp;
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array = {64, 25, 12, 22, 11};
+        System.out.println("Original array:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+
+        selectionSort(array);
+
+        System.out.println("\n\nSorted array:");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}
+    </pre>
+  </div>
+  <footer>
+    <p>&copy; 2025 Selection Sort Tutorial</p>
+    <div>
+      <a href="https://github.com/Saifmalik2004" target="_blank" aria-label="GitHub">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" style="width: 24px; height: 24px; margin-right: 8px;">
+      </a>
+      
+      <a href="https://www.linkedin.com/in/saif-malik-901635307" target="_blank" aria-label="LinkedIn">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" style="width: 24px; height: 24px;">
+
+      </a>
+    </div>
+  </footer>
+  
+  <script>
+    function copyCode() {
+      const code = document.querySelector(".code-section pre").innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        alert("Code copied to clipboard!");
+      }).catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+    }
+  </script>
+</body>
+</html>
