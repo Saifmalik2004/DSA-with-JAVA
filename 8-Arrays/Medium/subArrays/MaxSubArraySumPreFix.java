@@ -1,4 +1,4 @@
-public class MaxInSubArrayPreFix {
+public class MaxSubArraySumPreFix {
 
     // This method calculates the maximum sum of all possible subarrays using the prefix sum technique
     public static void printSubArray(int num[]) {

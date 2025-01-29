@@ -1,4 +1,5 @@
-public class MaxInSubArrayBruteForce {
+ 
+ public class MaxSubArraySumBruteForce {
 
     // This method calculates and prints all possible subarrays, their sums, and the maximum subarray sum (using brute-force)
     public static void printSubArray(int num[]) {

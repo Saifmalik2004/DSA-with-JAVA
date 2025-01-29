@@ -1,4 +1,4 @@
-public class MaxInSubArrayKadaneAlgo {
+public class MaxSubArraySumKadaneAlgo {
 
     // This method implements Kadane's Algorithm to find the maximum sum of a contiguous subarray
     public static void KadaneAlgo(int arr[]) {
@@ -11,12 +11,15 @@ public class MaxInSubArrayKadaneAlgo {
             currSum += arr[i]; // Add the current element to the current subarray sum
 
             // Update maxSum if currSum is greater than the current maxSum
-            maxSum = Math.max(currSum, maxSum);
+            maxSum = Math.max(currSum, maxSum); 
 
             // If currSum becomes negative, reset it to 0 to start a new subarray
             if (currSum < 0) {
                 currSum = 0;
             }
+            
+
+           
         }
 
         // Print the maximum sum found
