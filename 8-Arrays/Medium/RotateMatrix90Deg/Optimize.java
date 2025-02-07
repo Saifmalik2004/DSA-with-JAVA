@@ -7,7 +7,7 @@ public class Optimize {
         // Step 1: Transpose the matrix (swap mat[i][j] with mat[j][i])
         for (int i = 0; i < n - 1; i++) {
             for (int j = i + 1; j < n; j++) {
-                swapMat(mat, i, j, j, i);
+                swapMat(mat, i, j);
             }
         }
 
@@ -24,10 +24,10 @@ public class Optimize {
     }
 
     // Helper function to swap two elements in the matrix
-    public static void swapMat(int[][] matrix, int ai, int aj, int bi, int bj) {
+    public static void swapMat(int[][] matrix, int ai, int aj) {
         int temp = matrix[ai][aj];
-        matrix[ai][aj] = matrix[bi][bj];
-        matrix[bi][bj] = temp;
+        matrix[ai][aj] = matrix[aj][ai];
+        matrix[aj][ai] = temp;
     }
 
     public static void main(String[] args) {
@@ -37,6 +37,7 @@ public class Optimize {
             {5, 6, 7, 8},
             {9, 10, 11, 12},
             {13, 14, 15, 16}
+            
         };
 
         // Rotating the matrix in place

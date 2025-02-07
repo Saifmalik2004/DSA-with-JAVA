@@ -4,8 +4,8 @@ public class Brute {
         int rotated[][] = new int[n][m];
 
         // Iterating through the matrix and placing elements in their new rotated positions.
-        for (int i = 0; i < 4; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 rotated[j][n - 1 - i] = met[i][j]; // Rotating element positions.
             }
         }
