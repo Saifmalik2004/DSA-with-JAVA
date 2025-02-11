@@ -1,5 +1,5 @@
 public class Optimize {
-    public static int maxSubarraySum(int[] nums) {
+    public static int maxAccendingSubarraySum(int[] nums) {
        
         // Initialize the current sum and answer with the first element
         int curr = nums[0], ans = nums[0];
@@ -18,6 +18,6 @@ public class Optimize {
 
     public static void main(String[] args) {
         int arr[]={10,20,30,5,10,15,16};
-        System.out.println(maxSubarraySum(arr)); // This will not give the correct result for all cases.
+        System.out.println(maxAccendingSubarraySum(arr)); // This will not give the correct result for all cases.
     }
 }
