@@ -12,16 +12,22 @@ public class Optimize {
         }
 
         // Step 2: Reverse each row to complete the 90-degree rotation
-        for (int i = 0; i < mat.length; i++) {
-            for (int j = 0; j < mat.length / 2; j++) {
-                int temp = mat[i][j];
-                mat[i][j] = mat[i][mat.length - 1 - j];
-                mat[i][mat.length - 1 - j] = temp;
-            }
+        for (int i = 0; i <n; i++) {
+            reverse(mat[i], 0,n-1 );
         }
 
         return mat; // Returning the rotated matrix
     }
+    public static void reverse(int arr[],int first,int last) {
+         
+        while(first<last){
+            int temp=arr[first];
+            arr[first]=arr[last];
+            arr[last]=temp;
+            first++;
+            last--;
+        }
+     }
 
     // Helper function to swap two elements in the matrix
     public static void swapMat(int[][] matrix, int ai, int aj) {
