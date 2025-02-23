@@ -17,27 +17,16 @@ public class Optimize {
         return ansRow;
     }
 
-    // Method to generate entire Pascal's Triangle
-    static List<List<Integer>> pascalTriangle(int n) {
-        List<List<Integer>> ans = new ArrayList<>();
-
-        // Compute and store all rows
-        for (int row = 1; row <= n; row++) {
-            ans.add(printRow(row));
-        }
-        return ans;
-    }
+   
 
     public static void main(String[] args) {
-        int n = 5; // Number of rows
-        List<List<Integer>> ans = pascalTriangle(n);
+        int n = 5; // row
+        List<Integer> ans = printRow(n);
 
         // Print the triangle
-        for (List<Integer> it : ans) {
-            for (int ele : it) {
-                System.out.print(ele + " ");
-            }
-            System.out.println();
+        for (Integer it : ans) {
+           
+            System.out.print(it+" ");
         }
     }
 }
