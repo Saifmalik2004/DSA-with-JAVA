@@ -1,47 +1,60 @@
-
 public class Optimize {
-    public static int[] searchRange(int[] nums, int target) {
-        int low=0;
-        int high=nums.length-1;
-        int ans1=-1;
-        while(low<=high){
-            int mid=low+(high-low)/2;
 
-            if(nums[mid]<target ) {
-                low=mid+1;
-            }
-            else{
-                if(nums[mid]==target)ans1=mid;
-                high=mid-1;
-                
-            }
-        }
-         low=0;
-         high=nums.length-1;
-         int ans2=-1;
-        while(low<=high){
-            int mid=low+(high-low)/2;
+    // Function to find the first and last index of target 'x' in a sorted array
+    public static int[] searchFirstAndLast(int arr[], int x) {
 
-            
-            if(nums[mid]>target){
-                high=mid-1;
-            }
-            else{
-                if(nums[mid]==target ) ans2=mid;
-                low=mid+1;
+        int n = arr.length;
+        int ans[] = {-1, -1}; // By default, assume target not found
+
+        int low = 0;
+        int high = n - 1;
+
+        // Find the first occurrence of x
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] < x) {
+                low = mid + 1; // Move to right part
+            } else {
+                if (arr[mid] == x) ans[0] = mid; // Possible answer found
+                high = mid - 1; // Move left to check for earlier occurrence
             }
         }
 
-        return new int[]{ans1,ans2};
-        
+        low = 0;
+        high = n - 1;
+
+        // Find the last occurrence of x
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+
+            if (arr[mid] > x) {
+                high = mid - 1; // Move to left part
+            } else {
+                if (arr[mid] == x) ans[1] = mid; // Possible answer found
+                low = mid + 1; // Move right to check for later occurrence
+            }
+        }
+
+        return ans;
     }
 
     public static void main(String[] args) {
 
-        int arr[]={1,1,1,2,2,3,4,4,4};
-       int res[]= searchRange(arr, 5);
-       int ans=res[1]-res[0];
-      
-       System.out.println(ans);
+        int arr[] = {1, 1, 1, 2, 2, 3, 4, 4, 4};
+
+        int target = 1;
+
+        int result[] = searchFirstAndLast(arr, target);
+
+        System.out.println("First Occurrence at index: " + result[0]);
+        System.out.println("Last Occurrence at index: " + result[1]);
+
+        if (result[0] != -1) {
+            int count = result[1] - result[0] + 1;
+            System.out.println("Total count of " + target + " is: " + count);
+        } else {
+            System.out.println(target + " not found in the array.");
+        }
     }
 }

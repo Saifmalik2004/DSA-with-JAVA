@@ -1,126 +1,172 @@
 
-# Search Range Algorithm
 
-## Introduction  
-This Java program efficiently finds the **first and last occurrence** of a target element in a sorted array using **binary search**.
+# 🎯 Problem: First and Last Occurrence in a Sorted Array
 
 ---
 
-## Explanation  
+## 🧠 Problem Statement:
 
-### **Approach**  
-We use **binary search** twice:  
-1. **First Binary Search** → Finds the **first occurrence** of the target.  
-2. **Second Binary Search** → Finds the **last occurrence** of the target.  
+Given a **sorted array** of integers and a `target` element, find the **first and last position** of the target.
 
-### **Algorithm**  
-1. **Initialize variables**  
-   - `low = 0`, `high = nums.length - 1`  
-   - `ans1 = -1` (stores first occurrence)  
-   - `ans2 = -1` (stores last occurrence)  
-
-2. **Find First Occurrence**  
-   - Perform **binary search**.  
-   - If `nums[mid] < target`, move `low = mid + 1`.  
-   - If `nums[mid] == target`, update `ans1 = mid` and move `high = mid - 1` to search further left.  
-
-3. **Find Last Occurrence**  
-   - Reset `low = 0`, `high = nums.length - 1`.  
-   - Perform **binary search**.  
-   - If `nums[mid] > target`, move `high = mid - 1`.  
-   - If `nums[mid] == target`, update `ans2 = mid` and move `low = mid + 1` to search further right.  
-
-4. **Return `[ans1, ans2]`** as the first and last index of `target`.  
+If the target is not found in the array, return `[-1, -1]`.
 
 ---
 
-## Code  
+## 💡 Example:
+
+| Input Array | Target | Output |
+|-------------|--------|--------|
+| `[1,1,1,2,2,3,4,4,4]` | `1` | `[0, 2]` |
+| `[1,1,1,2,2,3,4,4,4]` | `4` | `[6, 8]` |
+| `[1,1,1,2,2,3,4,4,4]` | `5` | `[-1, -1]` |
+
+---
+
+## 💭 Intuition:
+
+Because the array is sorted, **Binary Search** is the perfect fit!  
+But normal binary search stops on the first found element. Hume first aur last position dhoondhni hai.  
+
+So, we’ll slightly **modify binary search**:
+- One for **First Occurrence** (left-most).
+- One for **Last Occurrence** (right-most).
+
+---
+
+## 🪓 Approach: Step-by-Step Breakdown
+
+1. Initialize two variables `low = 0` and `high = n-1`.
+2. Perform **two separate binary searches**:
+   - One to find the **first occurrence**.
+   - Another to find the **last occurrence**.
+3. For first occurrence:
+   - If `arr[mid]` matches target, store index in `ans[0]` but continue searching **left**.
+4. For last occurrence:
+   - If `arr[mid]` matches target, store index in `ans[1]` but continue searching **right**.
+5. If not found, default answer `[-1, -1]` will remain.
+
+---
+
+## 🔥 Algorithm (Pseudo Code)
+
+```
+function searchFirstAndLast(arr, target):
+    ans = [-1, -1]
+    
+    // Find First Occurrence
+    low = 0
+    high = arr.length - 1
+    while low <= high:
+        mid = low + (high - low) // 2
+        if arr[mid] < target:
+            low = mid + 1
+        else:
+            if arr[mid] == target:
+                ans[0] = mid
+            high = mid - 1
+
+    // Find Last Occurrence
+    low = 0
+    high = arr.length - 1
+    while low <= high:
+        mid = low + (high - low) // 2
+        if arr[mid] > target:
+            high = mid - 1
+        else:
+            if arr[mid] == target:
+                ans[1] = mid
+            low = mid + 1
+
+    return ans
+```
+
+---
+
+## 💻 Code Walkthrough (Java)
 
 ```java
-public class Optimize {
-    public static int[] searchRange(int[] nums, int target) {
-        int low = 0;
-        int high = nums.length - 1;
-        int ans1 = -1;
+public static int[] searchFirstAndLast(int arr[], int x) {
 
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
+    int n = arr.length;
+    int ans[] = {-1, -1};
 
-            if (nums[mid] < target) {
-                low = mid + 1;
-            } else {
-                if (nums[mid] == target) ans1 = mid;
-                high = mid - 1;
-            }
-        }
+    int low = 0, high = n - 1;
 
-        low = 0;
-        high = nums.length - 1;
-        int ans2 = -1;
-
-        while (low <= high) {
-            int mid = low + (high - low) / 2;
-
-            if (nums[mid] > target) {
-                high = mid - 1;
-            } else {
-                if (nums[mid] == target) ans2 = mid;
-                low = mid + 1;
-            }
-        }
-
-        return new int[]{ans1, ans2};
-    }
-
-    public static void main(String[] args) {
-        int arr[] = {1, 1, 1, 2, 2, 3, 4, 4, 4};
-        for (int elem : searchRange(arr, 4)) {
-            System.out.println(elem);
+    // Find first occurrence
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] < x) {
+            low = mid + 1;
+        } else {
+            if (arr[mid] == x) ans[0] = mid;
+            high = mid - 1;
         }
     }
+
+    low = 0;
+    high = n - 1;
+
+    // Find last occurrence
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] > x) {
+            high = mid - 1;
+        } else {
+            if (arr[mid] == x) ans[1] = mid;
+            low = mid + 1;
+        }
+    }
+
+    return ans;
 }
 ```
 
 ---
 
-## Example  
+## ⏲️ Time Complexity:
 
-### **Input:**  
-```java
-int arr[] = {1, 1, 1, 2, 2, 3, 4, 4, 4};
-int target = 4;
-```
-
-### **Output:**  
-```
-6
-8
-```
-
-### **Explanation:**  
-In the given sorted array, `4` appears at indices **6 to 8**, so the output is `[6, 8]`.
+| Operation | Complexity |
+|-----------|------------|
+| First Occurrence | `O(log N)` |
+| Last Occurrence  | `O(log N)` |
+| **Total**        | `O(log N)` |
 
 ---
 
-## Complexity Analysis  
-| Case | Time Complexity |
-|------|---------------|
-| Best Case | **O(log N)** |
-| Worst Case | **O(log N)** |
+## 💾 Space Complexity:
 
-✅ **Binary search** reduces the search time significantly compared to **O(N)** in a linear search.  
+| Usage        | Complexity |
+|--------------|------------|
+| Variables (`low, high, mid, ans[]`) | `O(1)` (Constant Space) |
 
 ---
 
-## Edge Cases Considered  
-- **Target at the beginning or end** → Works for cases like `{4, 4, 4, 5, 6}`  
-- **Target appears once** → Handles cases like `{1, 2, 3, 4, 5}`  
-- **Target not found** → Returns `[-1, -1]`  
+## ⭐ Key Features:
+
+- Uses **Modified Binary Search** to get accurate first and last indices.
+- Runs in `O(log N)` time — highly efficient for large sorted arrays.
+- Clean logic, easy to debug.
+- Zero extra memory — constant space.
 
 ---
 
-## Summary  
-This approach efficiently finds the **first and last index** of a target value in a **sorted array** using **binary search in O(log N) time**.
-```  
+## 💡 Some Tips:
 
-This follows your structure and explains everything clearly. Let me know if you want any modifications! 🚀
+- Use `low + (high - low) / 2` instead of `(low + high) / 2` to avoid **Integer Overflow**.
+- Always test edge cases:
+   - Empty array.
+   - Target not present.
+   - Target appears once.
+   - Target appears multiple times at start or end.
+
+---
+
+## 🏁 Conclusion:
+
+This problem teaches:
+- Smart use of **binary search**.
+- Importance of modifying search conditions to handle real-world patterns (like duplicates).
+- Clean code + efficient time & space complexity is always the best combo!
+
+---
+
