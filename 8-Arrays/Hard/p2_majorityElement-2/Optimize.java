@@ -49,9 +49,4 @@ public class Optimize {
 
     
 
-    public static void mm(String[] args) {
-        
-        
-    }
-
 }
