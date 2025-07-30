@@ -9,7 +9,7 @@ public class Brute {
 
         List<Integer> arr3 = new ArrayList<>();
         // Apply the merge step
-        int i = 0, j = 0, k = 0;
+        int i = 0, j = 0;
         while (i < n1 && j < n2) {
             if (a[i] < b[j]) {
                 arr3.add(a[i++]);
