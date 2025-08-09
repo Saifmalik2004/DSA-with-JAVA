@@ -346,4 +346,3 @@ Use the following variety of tests when validating your solution:
 * The reverse-tracking method is the standard optimal solution: compute the final size, and then walk from the back, using modular arithmetic to map `k` back through layers of repetition.
 * Implementation is compact, fast (`O(n)`), and uses constant extra space.
 
-Happy coding! If you want, I can also add a small visual ASCII animation that shows how `k` maps back for a sample input step-by-step.
