@@ -23,6 +23,8 @@ public class UppercaseLetter {
 
     public static void main(String[] args) { 
         String str = "my name is saif malik ";
+        
         System.out.println(uppercaseLetter(str)); 
+        System.out.println('z'-'a'); 
     }
 }
