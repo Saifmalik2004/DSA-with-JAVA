@@ -213,7 +213,7 @@ public void deleteNthFromLast(int n) {
         ll.addLast(30);
         ll.addLast(40);
         ll.print();
-        ll.deleteNthFromLast(2);
+        ll.deleteNthFromLast(4);
         ll.print();
     }
 }

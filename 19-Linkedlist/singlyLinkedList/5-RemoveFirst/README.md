@@ -1,6 +1,3 @@
-Here's a detailed and engaging README for the `removeFirst` method:
-
----
 
 # **Removing the First Node in a LinkedList**
 
