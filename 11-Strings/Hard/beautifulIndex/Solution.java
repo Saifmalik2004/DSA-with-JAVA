@@ -37,40 +37,40 @@ class Solution {
     }
 
     private List<Integer> kmp(char[] s, char[] pattern) {
-        int[] lsp = computeLsp(pattern);
+        int[] lps = computeLps(pattern);
         List<Integer> res = new ArrayList<>();
         int j = 0;
 
         for (int i = 0; i < s.length; i++) {
             while (j > 0 && s[i] != pattern[j]) {
-                j = lsp[j - 1];
+                j = lps[j - 1];
             }
             if (s[i] == pattern[j]) {
                 j++;
             }
             if (j == pattern.length) {
                 res.add(i - j + 1);
-                j = lsp[j - 1];
+                j = lps[j - 1];
             }
         }
         return res;
     }
 
-    private int[] computeLsp(char[] s) {
+    private int[] computeLps(char[] s) {
         int length = 0;
         int i = 1;
-        int[] lsp = new int[s.length];
+        int[] lps = new int[s.length];
 
         while (i < s.length) {
             while (length > 0 && s[i] != s[length]) {
-                length = lsp[length - 1];
+                length = lps[length - 1];
             }
             if (s[length] == s[i]) {
                 ++length;
             }
-            lsp[i++] = length;
+            lps[i++] = length;
         }
-        return lsp;
+        return lps;
     }
 
     public static void main(String[] args) {
