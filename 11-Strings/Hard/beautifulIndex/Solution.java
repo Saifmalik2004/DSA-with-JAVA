@@ -2,12 +2,11 @@ import java.util.*;
 
 class Solution {
     public List<Integer> beautifulIndices(String s, String a, String b, int k) {
-        char[] sChar = s.toCharArray();
-        List<Integer> indicesA = kmp(sChar, a.toCharArray());
-        List<Integer> indicesB = kmp(sChar, b.toCharArray());
+        List<Integer> indicesA = kmpSearch(s, a);
+        List<Integer> indicesB = kmpSearch(s, b);
         List<Integer> res = new ArrayList<>();
         int j = 0;
-        
+
         for (int i = 0; i < indicesA.size(); i++) {
             boolean found = false;
             int aIndex = indicesA.get(i);
@@ -36,43 +35,62 @@ class Solution {
         return res;
     }
 
-    private List<Integer> kmp(char[] s, char[] pattern) {
-        int[] lps = computeLps(pattern);
-        List<Integer> res = new ArrayList<>();
-        int j = 0;
+    // ✅ Clean & optimized KMP function
+    private List<Integer> kmpSearch(String text, String pattern) {
+        List<Integer> result = new ArrayList<>();
+        int n = text.length();
+        int m = pattern.length();
+        int[] lps = buildLps(pattern);
 
-        for (int i = 0; i < s.length; i++) {
-            while (j > 0 && s[i] != pattern[j]) {
-                j = lps[j - 1];
-            }
-            if (s[i] == pattern[j]) {
+        int i = 0; // pointer for text
+        int j = 0; // pointer for pattern
+
+        while (i < n) {
+            if (text.charAt(i) == pattern.charAt(j)) {
+                i++;
                 j++;
             }
-            if (j == pattern.length) {
-                res.add(i - j + 1);
+
+            if (j == m) {
+                result.add(i - j);
                 j = lps[j - 1];
+            } 
+            else if (i < n && text.charAt(i) != pattern.charAt(j)) {
+                if (j != 0)
+                    j = lps[j - 1];
+                else
+                    i++;
             }
         }
-        return res;
+
+        return result;
     }
 
-    private int[] computeLps(char[] s) {
-        int length = 0;
+    // ✅ Build LPS (Longest Prefix Suffix) array
+    private int[] buildLps(String pattern) {
+        int m = pattern.length();
+        int[] lps = new int[m];
+        int len = 0; // length of previous longest prefix suffix
         int i = 1;
-        int[] lps = new int[s.length];
 
-        while (i < s.length) {
-            while (length > 0 && s[i] != s[length]) {
-                length = lps[length - 1];
+        while (i < m) {
+            if (pattern.charAt(i) == pattern.charAt(len)) {
+                len++;
+                lps[i] = len;
+                i++;
+            } else {
+                if (len != 0) {
+                    len = lps[len - 1];
+                } else {
+                    lps[i] = 0;
+                    i++;
+                }
             }
-            if (s[length] == s[i]) {
-                ++length;
-            }
-            lps[i++] = length;
         }
         return lps;
     }
 
+    // ✅ Example usage
     public static void main(String[] args) {
         Solution sol = new Solution();
         String s = "isawsquirrelnearmysquirrelhouseohmy";
